@@ -1,21 +1,27 @@
+def comeco
+    puts "Bem vindo ao jogo de adivinhação"
+    puts "Qual o seu nome?"
+    puts "\n\n"
+    nome = gets
+    puts "Bem vindo ao jogo de adivinhação "+ nome
+end
 
-puts "Bem vindo ao jogo de adivinhação"
-puts "Qual o seu nome?"
-puts "\n\n"
-nome = gets
-puts "Bem vindo ao jogo de adivinhação "+ nome
-puts "Escolha um numero no intervalo entre 0 a 100"
-numeroDeTentativa = 5
-puts "Você tem " + numeroDeTentativa.to_s + " tentativas"
+def escolhendo
+    puts "Escolha um numero no intervalo entre 0 a 100"
+    numeroSecreto = 100    
+end
 
+comeco
+numero = escolhendo
+maximaTentativa = 5
 
-for tentativa in  1..numeroDeTentativa
+for tentativa in  1..maximaTentativa
 
     puts "\n\n"
-    puts "Tentativa " + tentativa.to_s + " de "  + numeroDeTentativa.to_s
+    puts "Tentativa " + tentativa.to_s + " de "  + maximaTentativa.to_s
     puts "Escolha 1 numero"
     numeroDigitado = gets
-    numero = 100
+    
     acertou = numeroDigitado.to_i == numero 
         if acertou
              puts "Parabéns, você Acertou"
@@ -31,9 +37,11 @@ for tentativa in  1..numeroDeTentativa
             else
 
                 puts
-                puts "Você errou mas ainda resta " + numeroDeTentativa.to_s + " tentativas"
+                puts "Você errou mas ainda resta " + maximaTentativa.to_s + " tentativas"
                 puts "Numero escolhido foi: " + numeroDigitado
                 puts "Tente novamente"
             end
         end     
 end
+
+

@@ -1,9 +1,9 @@
 def inicio_recepecao
     puts "Bem vindo ao jogo da adivinhação"
     puts "Qual é o seu nome"
-    nome = gets
+    nome = gets.strip
     puts "\n\n"
-    puts "Começaremos o jogo, " + nome
+    puts "Começaremos o jogo, #{nome} "
     puts "\n"
 end
 
@@ -20,11 +20,11 @@ end
 
 def escolha_numero tentativa, limite_tentativa
     puts "\n\n"
-    puts "Teantativa "+ tentativa.to_s + " de " + limite_tentativa.to_s
+    puts "Tentativa #{tentativa} de #{limite_tentativa}"
     puts "Entre com o número"
     puts "\n"
     chute = gets
-    puts "Verificando resultados, bem, você escolheu o número :" + chute + "e..."
+    puts "Verificando resultados, bem, você escolheu o número : #{chute} e ..."
     chute.to_i
 end
 

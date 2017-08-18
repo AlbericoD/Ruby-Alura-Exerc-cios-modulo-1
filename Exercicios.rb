@@ -18,9 +18,10 @@ def sorteia_numero
     numero_sorteado
 end
 
-def escolha_numero tentativa, limite_tentativa
+def escolha_numero chutes, tentativa, limite_tentativa
     puts "\n\n"
     puts "Tentativa #{tentativa} de #{limite_tentativa}"
+    puts "Chutes até agora #{chutes}".strip
     puts "Entre com o número"
     puts "\n"
     chute = gets
@@ -49,9 +50,12 @@ end
     inicio_recepecao
     numero_sorteado = sorteia_numero
     limite_tentativa = 5
+    chutes = []
+    
 
     for tentativa in 1..limite_tentativa
-        chute = escolha_numero tentativa, limite_tentativa
+        chute = escolha_numero chutes, tentativa, limite_tentativa
+        chutes << chute
             if  condicao_jogo numero_sorteado, chute
                 break
             end

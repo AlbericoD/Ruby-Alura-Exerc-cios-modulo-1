@@ -5,6 +5,7 @@ def inicio_recepecao
     puts "\n\n"
     puts "Começaremos o jogo, #{nome} "
     puts "\n"
+    nome
 end
 
 def sorteia_numero nivel
@@ -18,9 +19,9 @@ def sorteia_numero nivel
         else 
             nivel_escolhido = 1000
         end                
-    puts "Escolhendo um número, no intervalo entre 0 a #{nivel_escolhido}"
+    puts "Escolhendo um número, no intervalo entre 1 a #{nivel_escolhido}"
     puts "\n"
-    numero_sorteado = rand (nivel_escolhido)
+    numero_sorteado = rand (nivel_escolhido) + 1
     puts "Embaralhando e...."
     puts "\n"
     puts "....Escolhido, finalmente!"
@@ -62,8 +63,8 @@ def nivel_dificudade
     nivel = gets.to_i
 end 
 
-    inicio_recepecao
-    nivel = nivel_dificudade
+def jogar nome, nivel
+
     numero_sorteado = sorteia_numero nivel 
     limite_tentativa = 5
     chutes = []
@@ -71,11 +72,32 @@ end
     for tentativa in 1..limite_tentativa
         chute = escolha_numero chutes, tentativa, limite_tentativa
         chutes << chute
+            if nome == "Alberico"
+                puts "Acertou !"
+                break
+            end    
             if  condicao_jogo numero_sorteado, chute
                 break
             end
-    end    
+    end       
+end     
 
+def nao_jogar?
+    puts "Deseja jogar novamente? (S/N)"
+    quer_jogar = gets.strip
+    n_quer_jogar = quer_jogar.upcase == "N"
+end 
+
+
+nome = inicio_recepecao
+nivel = nivel_dificudade
+loop do
+    jogar nome, nivel
+    break if nao_jogar?
+end
+
+    
+    
 
 
 

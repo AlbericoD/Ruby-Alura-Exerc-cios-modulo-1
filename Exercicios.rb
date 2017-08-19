@@ -50,7 +50,6 @@ end
     inicio_recepecao
     numero_sorteado = sorteia_numero
     limite_tentativa = 5
-    pontos_iniciais = 1000
     chutes = []
     
 

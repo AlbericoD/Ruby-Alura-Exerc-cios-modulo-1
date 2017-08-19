@@ -7,10 +7,20 @@ def inicio_recepecao
     puts "\n"
 end
 
-def sorteia_numero
-    puts "Escolhendo um número, no intervalo entre 0 a 150..."
+def sorteia_numero nivel
+    case nivel
+        when 1 
+            nivel_escolhido = 10
+        when 2
+            nivel_escolhido = 90
+        when 3
+            nivel_escolhido = 150
+        else 
+            nivel_escolhido = 1000
+        end                
+    puts "Escolhendo um número, no intervalo entre 0 a #{nivel_escolhido}"
     puts "\n"
-    numero_sorteado = 94
+    numero_sorteado = rand (nivel_escolhido)
     puts "Embaralhando e...."
     puts "\n"
     puts "....Escolhido, finalmente!"
@@ -47,11 +57,16 @@ def condicao_jogo numero_sorteado, chute
     end  
 end
 
+def nivel_dificudade 
+    puts "Escolha um nivel de dificudade: \n (1- fácil | 2-médio | 3 - dificil | 4- insano)"
+    nivel = gets.to_i
+end 
+
     inicio_recepecao
-    numero_sorteado = sorteia_numero
+    nivel = nivel_dificudade
+    numero_sorteado = sorteia_numero nivel 
     limite_tentativa = 5
     chutes = []
-    
 
     for tentativa in 1..limite_tentativa
         chute = escolha_numero chutes, tentativa, limite_tentativa

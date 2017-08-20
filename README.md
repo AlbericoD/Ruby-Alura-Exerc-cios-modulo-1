@@ -1,5 +1,7 @@
 # Ruby-Alura - Atividades - modulo-1
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9e4c5b6f6f514c0e96702671dc9f69ab)](https://www.codacy.com/app/AlbericoD/Ruby-Alura-Exerc-cios-modulo-1?utm_source=github.com&utm_medium=referral&utm_content=AlbericoD/Ruby-Alura-Exerc-cios-modulo-1&utm_campaign=badger)
+
 * Exercícios da plataforma alura:
 * Linguagem ruby 
 * Tipo Console

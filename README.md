@@ -10,8 +10,6 @@
 
 * Modalidade: Adivinhação de números 
 
-* Teste Codacy
-* [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9e4c5b6f6f514c0e96702671dc9f69ab)](https://www.codacy.com/app/AlbericoD/Ruby-Alura-Exerc-cios-modulo-1?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AlbericoD/Ruby-Alura-Exerc-cios-modulo-1&amp;utm_campaign=Badge_Grade)
 
 ## Funcionalidade 
 

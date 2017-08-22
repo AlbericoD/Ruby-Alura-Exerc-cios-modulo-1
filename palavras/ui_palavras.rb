@@ -32,7 +32,7 @@ end
 def pede_chute 
    puts "\n"
    puts "Entre com uma letra ou uma palavra"
-   chute = gets.strip
+   chute = gets.strip.downcase
    puts "Será que você acertou? Sua jogada é #{chute}"
    chute
 end
@@ -59,4 +59,8 @@ end
 
 def aviso_pontos pontos_ate_agora
    puts "Você está com  #{pontos_ate_agora} pontos"
+end
+
+def aviso_pontos_total pontos_total
+   puts "Você finalizou com #{pontos_total} pontos, parabéns"
 end

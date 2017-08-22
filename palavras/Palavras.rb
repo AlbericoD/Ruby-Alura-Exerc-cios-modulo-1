@@ -6,7 +6,8 @@ def joga nome
    pontos_ate_agora = 0
  
    while erros < 5
-      chute = chute_valido chutes, erros, pontos_ate_agora 
+      interface = interface_palavra chutes, palavra_secreta
+      chute = chute_valido chutes, erros, pontos_ate_agora, interface 
       chutes << chute
       chutou_uma_letra = chute.size == 1
 
@@ -35,8 +36,8 @@ def joga nome
    aviso_pontos pontos_ate_agora #puts "Você está com  #{pontos_ate_agora} pontos"
 end
 
-def chute_valido chutes, erros, pontos_ate_agora
-      fixo_menu chutes, erros , pontos_ate_agora 
+def chute_valido chutes, erros, pontos_ate_agora, interface
+      fixo_menu chutes, erros , pontos_ate_agora , interface
       loop do
             chute = pede_chute 
             if chutes.include? chute
@@ -46,6 +47,28 @@ def chute_valido chutes, erros, pontos_ate_agora
                  return chute
             end
       end
+end
+
+def escolhe_palavra_secreta
+      escolhendo_palavra #puts "Escolhendo uma palavra secreta..."
+      texto = File.read("dicionario.txt")
+      lista_separada = texto.split  "\n"
+      mistura_lista = rand(lista_separada.size)
+      palavra_secreta = lista_separada[mistura_lista]
+      palavra_secreta_escolhida palavra_secreta #puts "Palavra secreta com #{palavra_secreta.size} letras.... Boa sorte!"
+      
+   end
+
+def interface_palavra chutes, palavra_secreta
+      interface = ""
+      for letra in palavra_secreta.chars
+            if chutes.include? letra
+                  interface << letra
+            else
+                  interface << "_"
+            end
+      end
+      interface
 end
 
 def jogo_palavras 

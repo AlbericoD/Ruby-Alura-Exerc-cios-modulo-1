@@ -7,9 +7,11 @@ def inicio_jogo
    nome  
 end
 
-def escolhe_palavra_secreta
-   puts "Escolhendo uma palavra secreta..."
-   palavra_secreta =  "teste"
+def escolhendo_palavra
+   puts "Escolhendo palavra secreta...."
+end
+
+def palavra_secreta_escolhida palavra_secreta
    puts "Palavra secreta com #{palavra_secreta.size} letras.... Boa sorte!"
    palavra_secreta
 end
@@ -20,7 +22,8 @@ def nao_quer_jogar?
    nao_quero = quero_jogar.upcase == "N"
 end
 
-def fixo_menu chutes, erros , pontos_ate_agora
+def fixo_menu chutes, erros , pontos_ate_agora, interface
+   puts "A Palavra secreta é #{interface}"
    puts "Erros até agora : #{erros}"
    puts "Chutes até agora : #{chutes}"
    puts "Pontos até agora : #{pontos_ate_agora}"

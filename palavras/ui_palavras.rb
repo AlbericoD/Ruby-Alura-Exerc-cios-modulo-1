@@ -3,7 +3,7 @@ def inicio_jogo
    puts "Qual o seu nome?"
    nome = gets.strip
    puts "\n\n"
-   puts "Vamos iniciar os jogos #{nome}"
+   puts "Vamos iniciar o jogo #{nome}"
    nome  
 end
 
@@ -20,11 +20,14 @@ def nao_quer_jogar?
    nao_quero = quero_jogar.upcase == "N"
 end
 
-def pede_chute chutes, erros, pontos_ate_agora
-   puts "\n\n"
+def fixo_menu chutes, erros , pontos_ate_agora
    puts "Erros até agora : #{erros}"
    puts "Chutes até agora : #{chutes}"
    puts "Pontos até agora : #{pontos_ate_agora}"
+end
+
+def pede_chute 
+   puts "\n"
    puts "Entre com uma letra ou uma palavra"
    chute = gets.strip
    puts "Será que você acertou? Sua jogada é #{chute}"

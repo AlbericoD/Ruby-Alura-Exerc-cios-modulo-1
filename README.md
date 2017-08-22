@@ -8,7 +8,7 @@
 
 * Tipo Console
 
-* Modalidade: Adivinhação de números 
+* Modalidades: Adivinhação de números e forca
 
 
 ## Funcionalidade 
@@ -22,8 +22,8 @@
 ### Imagens
 
 
-![Imagem do jogo em funcionamento](http://i.imgur.com/wklcLlh.png)
+![Imagem do jogo em funcionamento, Adivinhação de números](http://i.imgur.com/wklcLlh.png)
 
-![Imagem do jogo em funcionamento](http://i.imgur.com/2Bc47j6.png)
+![Imagem do jogo em funcionamento, Adivinhação de números](http://i.imgur.com/2Bc47j6.png)
 
-![Imagem do jogo em funcionamento](http://i.imgur.com/5rnLzQw.png)
+![Imagem do jogo em funcionamento, Adivinhação de números](http://i.imgur.com/5rnLzQw.png)

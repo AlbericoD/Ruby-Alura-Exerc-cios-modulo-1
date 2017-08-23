@@ -64,3 +64,7 @@ end
 def aviso_pontos_total pontos_total
    puts "Você finalizou com #{pontos_total} pontos, parabéns"
 end
+
+def mostrar_colocacao arquivo_com_pontuacoes
+   puts "Pontos acumulados anteriormente, Jogador #{arquivo_com_pontuacoes[0]} com #{arquivo_com_pontuacoes[1]} pontos!"
+end

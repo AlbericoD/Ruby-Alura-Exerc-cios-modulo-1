@@ -73,13 +73,21 @@ def salvar_pontos nome_jogador, pontos_total
       File.write "colocacao.txt", jogadores_colocacao
 end
 
+def recuperar_pontos
+      jogadores_colocacao = File.read "colocacao.txt"  
+      jogadores_colocacao.split "\n"          
+end
+
 def jogo_palavras 
      nome_jogador = inicio_jogo
      pontos_total = 0
+     mostrar_colocacao recuperar_pontos     
       loop do
             pontos_total += joga nome_jogador
             aviso_pontos_total pontos_total
-            salvar_pontos nome_jogador, pontos_total
+            if recuperar_pontos[1].to_i < pontos_total
+                  salvar_pontos nome_jogador, pontos_total
+            end
             if nao_quer_jogar?
                   break
             end

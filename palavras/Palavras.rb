@@ -1,6 +1,6 @@
 require_relative 'ui_palavras'
 require_relative 'manipula_arquivos.rb'
-def joga nome
+def joga nome_jogador
       palavra_secreta = escolhe_palavra_secreta
       erros = 0
       chutes = []
@@ -8,32 +8,32 @@ def joga nome
  
       while erros < 5
 
-      interface = interface_palavra chutes, palavra_secreta
-      chute = chute_valido chutes, erros, pontos_ate_agora, interface 
-      chutes << chute
-      chutou_uma_letra = chute.size == 1
-      if chutou_uma_letra        
-            total_encontrado = palavra_secreta.count(chute[0])          
-            if total_encontrado == 0
-                  aviso_letra_falha #puts "Letra não encontrada... :/"      
-                  erros += 1
-            else  
-                  aviso_letra_sucesso total_encontrado #puts "Letra encontrada #{total_encontrado} vezes"
-               #pontos_ate_agora += 15
-                  pontos_ate_agora += 14
-            end  
-      else  acertou = chute == palavra_secreta
-            if acertou
-                  aviso_palavra_sucesso #puts "Aehooo Acertou!"
-                  pontos_ate_agora += 100
-                  break
-            else
-                  aviso_palavra_falha #puts "OPSSS..você Errou"
-                  pontos_ate_agora -= 45
-                  erros += 1
-            end
+            interface = interface_palavra chutes, palavra_secreta
+            chute = chute_valido chutes, erros, pontos_ate_agora, interface 
+            chutes << chute
+            chutou_uma_letra = chute.size == 1
+            if chutou_uma_letra        
+                  total_encontrado = palavra_secreta.count(chute[0])          
+                  if total_encontrado == 0
+                        aviso_letra_falha #puts "Letra não encontrada... :/"      
+                        erros += 1
+                  else  
+                        aviso_letra_sucesso total_encontrado #puts "Letra encontrada #{total_encontrado} vezes"
+                  #pontos_ate_agora += 15
+                        pontos_ate_agora += 14
+                  end  
+            elsif  acertou = chute == palavra_secreta
+                  if acertou
+                        aviso_palavra_sucesso #puts "Aehooo Acertou!"
+                        pontos_ate_agora += 100
+                        break
+                  else
+                        aviso_palavra_falha #puts "OPSSS..você Errou"
+                        pontos_ate_agora -= 45
+                        erros += 1
+                  end
+            end   
       end   
-   end   
       aviso_pontos pontos_ate_agora #puts "Você está com  #{pontos_ate_agora} pontos"
       pontos_ate_agora
 end

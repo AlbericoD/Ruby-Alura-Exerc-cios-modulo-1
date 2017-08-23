@@ -1,4 +1,5 @@
 require_relative 'ui_palavras'
+require_relative 'manipula_arquivos.rb'
 def joga nome
       palavra_secreta = escolhe_palavra_secreta
       erros = 0
@@ -16,8 +17,10 @@ def joga nome
             if total_encontrado == 0
                   aviso_letra_falha #puts "Letra não encontrada... :/"      
                   erros += 1
-            else  aviso_letra_sucesso total_encontrado #puts "Letra encontrada #{total_encontrado} vezes"
+            else  
+                  aviso_letra_sucesso total_encontrado #puts "Letra encontrada #{total_encontrado} vezes"
                #pontos_ate_agora += 15
+                  pontos_ate_agora += 14
             end  
       else  acertou = chute == palavra_secreta
             if acertou
@@ -26,7 +29,7 @@ def joga nome
                   break
             else
                   aviso_palavra_falha #puts "OPSSS..você Errou"
-                  pontos_ate_agora -= 30
+                  pontos_ate_agora -= 45
                   erros += 1
             end
       end   
@@ -66,16 +69,6 @@ def interface_palavra chutes, palavra_secreta
             end
       end
       interface
-end
-
-def salvar_pontos nome_jogador, pontos_total
-      jogadores_colocacao = "#{nome_jogador} \n #{pontos_total}"
-      File.write "colocacao.txt", jogadores_colocacao
-end
-
-def recuperar_pontos
-      jogadores_colocacao = File.read "colocacao.txt"  
-      jogadores_colocacao.split "\n"          
 end
 
 def jogo_palavras 

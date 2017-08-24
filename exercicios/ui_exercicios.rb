@@ -54,3 +54,13 @@ def nao_jogar?
    quer_jogar = gets.strip
    n_quer_jogar = quer_jogar.upcase == "N"
 end 
+
+def pontos_total pontos_ganhos
+    puts "Você está com #{pontos_ganhos} pontos"
+    puts "Parabéns, isso é bastante! :D"
+end    
+
+def pontos_total_inferior pontos_ganhos
+    puts "Você está com #{pontos_ganhos} pontos"
+    puts "OPS, isso é ruim, tente jogar novamente para subir os pontos"
+end    

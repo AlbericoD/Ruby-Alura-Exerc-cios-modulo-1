@@ -5,6 +5,7 @@ def joga nome_jogador
    while true  
       desenha mapa
       direcao = movimento_jogador
+      heroi = localizar_jogador mapa
    end
 end
 
@@ -14,14 +15,12 @@ def inicia_jogo
 end
 
 def localizar_jogador mapa
-   for linha in 0..mapa.size-1 
-      if mapa[linha].include? "H"
-         for coluna in 0..mapa[linha].size-1
-            if mapa[linha][coluna] == "H"
-               #localizado
-            end   
-         end   
-      end   
+   letra_jogador = "H"
+   mapa.each_with_index do |linha_atual,linha| #for linha in 0..mapa.size-1                              
+      coluna_jogador = linha_atual.index letra_jogador #linha_atual = mapa[linha]   
+         if coluna_jogador
+             return [linha, coluna_jogador]  #localizado
+         end         
    end   
    #não localizado
 end

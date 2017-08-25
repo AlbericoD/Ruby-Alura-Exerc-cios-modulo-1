@@ -4,14 +4,17 @@
 
 * Exercícios da plataforma alura:
 
-* Linguagem ruby 
+* Linguagem: Ruby. 
 
-* Tipo Console
+* Tipo: Console.
 
-* Modalidades: Adivinhação de números e forca
+* Modalidades: Adivinhação de números , forca e foge-foge (pac-man).
 
+* Exercícios reproduzidos: foge-foge.
 
-## Funcionalidade 
+* Exercicios treino : Adivinhação de números, forca e foge - foge. 
+
+## Funcionalidades 
 
 * Niveis de dificudade
 
@@ -21,6 +24,7 @@
 
 ### Imagens
 
+##### Adivinhação de números
 
 ![Imagem do jogo em funcionamento, Adivinhação de números](http://i.imgur.com/wklcLlh.png)
 

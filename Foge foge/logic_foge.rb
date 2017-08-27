@@ -1,18 +1,18 @@
 require_relative 'ui_foge'
 require_relative 'files_maps'
-
+require_relative 'class_heroi'
 def joga nome_jogador
     mapa = arquivo_mapa_leitura 2
     while true  
         desenha mapa
         direcao = movimento_jogador
         heroi = localizar_jogador mapa       
-        nova_posicao = nova_posicao_jogador heroi, direcao
-        if !posicao_valida_jogador? mapa, nova_posicao
+        nova_posicao = heroi.nova_posicao_jogador direcao
+        if !posicao_valida_jogador? mapa, nova_posicao.to_array
             next
         end
-        mapa[heroi[0]] [heroi[1]] = " "
-        mapa[nova_posicao[0]] [nova_posicao[1]] = "H" 
+        heroi.remove_do mapa
+        nova_posicao.coloca_no mapa 
         mapa = move_inimigos mapa
     end
 end
@@ -27,10 +27,13 @@ def localizar_jogador mapa
     mapa.each_with_index do |linha_atual,linha|                            
     coluna_jogador = linha_atual.index letra_jogador    
         if coluna_jogador
-            return [linha, coluna_jogador]
+            heroi = Heroi.new
+            heroi.linha = linha
+            heroi.coluna = coluna_jogador
+            return heroi
         end         
     end   
-   #não localizado
+   nil
 end
 
 def posicao_valida_inimigo mapa, novo_mapa, posicao
@@ -50,10 +53,10 @@ def anda_inimigo mapa, novo_mapa, linha, coluna
     if posicoes.empty?
         return
     end 
-        aleatoria = rand posicoes.size
-        posicao = posicoes[aleatoria]   
-        mapa[linha][coluna] = " "
-        novo_mapa[posicao[0]][posicao[1]] = "F"
+    aleatoria = rand posicoes.size
+    posicao = posicoes[aleatoria]   
+    mapa[linha][coluna] = " "
+    novo_mapa[posicao[0]][posicao[1]] = "F"
 end
 
 def move_inimigos mapa
@@ -70,19 +73,7 @@ def move_inimigos mapa
     novo_mapa  
 end
 
-def nova_posicao_jogador heroi, direcao   
-    heroi = heroi.dup
-    movimentos = {
-        "W" => [-1,0],
-        "S" => [+1,0],
-        "A" => [0,+1],
-        "D" => [0,-1]        
-    }
-    movimento = movimentos[direcao]
-    heroi[0] += movimento[0]
-    heroi[1] -= movimento[1]
-    heroi
-end
+
 
 def posicao_valida_jogador? mapa, posicao
     linhas = mapa.size
@@ -103,3 +94,4 @@ end
 def copiar_mapa mapa
     novo_mapa = mapa.join("\n").tr("F", " ").split ("\n")
 end
+
